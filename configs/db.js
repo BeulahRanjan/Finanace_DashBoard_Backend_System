@@ -7,7 +7,7 @@ mongoose.set('debug', true);
 export const connectDB = async () => {
     try {
 
-        const mongoURI =process.env.DATABASE_URL;
+        const mongoURI =process.env.MONGO_URI;
 
 
         await mongoose.connect(mongoURI, {
