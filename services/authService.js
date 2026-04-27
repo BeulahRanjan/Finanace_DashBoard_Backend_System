@@ -10,8 +10,8 @@ async function login(body){
     return userCredentials;
 }
 
-const aauthService={
+const authService={
     login:login
 }
 
-export default aauthService;
+export default authService;
