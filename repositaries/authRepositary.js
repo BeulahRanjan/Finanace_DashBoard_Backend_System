@@ -12,7 +12,7 @@ async function loginUser(user){
         const isPasswordValid=await bcrypt.compare(password, existingUser.password);
         if(!isPasswordValid) throw new BadRequestError("Invalid Credentials");
         
-        const key=process.env.SECRET_KEY as string;
+        const key=process.env.SECRET_KEY;
         
 
         const token=jwt.sign({userId:existingUser._id}, key,{
