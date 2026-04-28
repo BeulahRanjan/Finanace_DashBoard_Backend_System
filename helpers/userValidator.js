@@ -26,6 +26,16 @@ export const createUserValidator = [
 
             throw new BadRequestError('Invalid role.Onlyanalyst,viewer allowed');
           }),
-];
+    ];
 
-
+  export const deleteUserValidator =[
+    param('id')
+     .exists()
+      .withMessage('User Id param is required')
+      .bail()
+      .notEmpty()
+      .withMessage('User Id cannot be empty')
+      .bail()
+      .isMongoId()
+      .withMessage('Invalid User Id'),
+  ];
