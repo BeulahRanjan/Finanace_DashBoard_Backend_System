@@ -3,9 +3,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 //import errorHandler from "./middlewares/errorHandler.js";
 //import { NotFoundError } from "./errors/AppError.js";
-//import  authRoute  from "./routes/authRoute.js"
+import  authRoute  from "./routes/authRoute.js"
 import { connectDB } from "./configs/db.js";
-//import userRoute from "./routes/userRoute.js"
+// import userRoute from "./routes/userRoute.js"
 //import recordRoute from "./routes/recordRoute.js"
 //import dashboardRoute from "./routes/dashboardRoute.js"
 import swaggerUi from "swagger-ui-express";
@@ -27,17 +27,17 @@ app.use(cors({
 
 // ✅ Routes FIRST
 
-// app.use('/api', authRoute);
+app.use('/api', authRoute);
 // app.use('/api/user', userRoute);
 // app.use('/api/record', recordRoute);
 // app.use('/api/dashboard', dashboardRoute);
 
-// 404 AFTER routes
-// app.use((req, res, next) => {
-//   next(new NotFoundError(`Cannot ${req.method} ${req.url}`));
-// });
+//404 AFTER routes
+app.use((req, res, next) => {
+  next(new NotFoundError(`Cannot ${req.method} ${req.url}`));
+});
 
-// // ✅ Error handler LAST
+// ✅ Error handler LAST
 // app.use(errorHandler);
 
 const port = 9002;

@@ -1,4 +1,4 @@
-import { BadRequestError } from "../errors/AppError";
+import { BadRequestError } from "../errors/AppError.js";
 import { validationResult } from "express-validator";
 
 const validate =async (req, res, next)=>{

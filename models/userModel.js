@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { ACTIVE, aCTIVE, INACTIVE } from "../utils/constants.js";
+import { ACTIVE, INACTIVE } from "../utils/constants.js";
 
-const userSchema =new mongooseSchema({
+const userSchema =new mongoose.Schema({
     name:{type:String, required:true},
     email:{type:String, required:true, unique:true},
     password:{type:String, required:true},
@@ -14,6 +14,6 @@ const userSchema =new mongooseSchema({
     }
 });
 
-const User = mongooose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 export default User;
