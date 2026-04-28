@@ -39,3 +39,23 @@ export const createUserValidator = [
       .isMongoId()
       .withMessage('Invalid User Id'),
   ];
+
+  export const updateRoleValidator =[
+    param('id')
+     .exists()
+     .withMessage('User Id Param is required')
+     .bail()
+     .notEmpty()
+     .withMessage('User Id cannot be empty')
+     .bail()
+     .isMongoId()
+     .withMessage('Invalid User Id'),
+
+     param('role')
+       .notEmpty()
+       .withMessage('Role is required')
+       .isIn([ANALYST,VIEWER])
+       .withMessage('Invalid role')
+  ];
+
+  
