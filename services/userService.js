@@ -12,7 +12,12 @@ async function createUser(body){
 
 }
 
+async function deleteUser(userId){
+    await userRedpositary.deleteUser(userId);
+}
+
 const userService={
-    createUser:createUser
+    createUser:createUser,
+    deleteUser:deleteUser
 }
 export default userService;

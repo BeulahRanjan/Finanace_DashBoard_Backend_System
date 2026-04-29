@@ -67,7 +67,7 @@ export const createUserValidator = [
     .withMessage('User Id cannot be empty')
     .bail()
     .isMongoId()
-    .withMessage('Invalid User Id')
+    .withMessage('Invalid User Id'),
 
     param('status')
      .notEmpty()

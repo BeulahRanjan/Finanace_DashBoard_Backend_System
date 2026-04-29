@@ -15,7 +15,14 @@ async function createUser(data){
     const savedUser =await newUser.save();
 }
 
+async function deleteUser(userId){
+    const isExist=await User.findById(userId);
+    if(!isExist) throw new BadRequestError("User Does Not Exist");
+    await User.findByIdAndDelete(userId);
+}
+
 const userRepositary={
-    createUser:createUser
+    createUser:createUser,
+    deleteUser:deleteUser
 }
 export default userRepositary;
