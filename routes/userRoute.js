@@ -9,3 +9,4 @@ import { createUserValidator, deleteUserValidator} from "../helpers/userValidato
 const router = express.Router();
 
 router.post("/",verifyToken,authorize(PERMISSIONS.CREATE_USER),createUserValidator, validate,userController.createUser);
+router.delete("/:id",verifyToken,authorize(PERMISSSIONS.DELETE_USER), deleteUserValidator,validate,userController.deleteUser);

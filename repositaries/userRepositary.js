@@ -21,8 +21,28 @@ async function deleteUser(userId){
     await User.findByIdAndDelete(userId);
 }
 
+async function updateRole(userId,role){
+    const isExist= await User.findById(userId);
+    if(!isExist) throw new BadRequestError ("User Does not Exist");
+    const roleData= await Role.findOne({name:role});
+    const user = await User.findByIdAndUpdate(userId,
+        {role:roleData?._id},
+        {new:true}
+    )
+}
+
+
+async function updateStatus(userId,status){
+    const user= await User.findByIdAndUpdat(userId,
+        {status:status},
+        {new:true}
+    )
+}
+
 const userRepositary={
     createUser:createUser,
-    deleteUser:deleteUser
+    deleteUser:deleteUser,
+    updateRole:updateRole,
+    updateStatus:updateStatus
 }
-export default userRepositary;
+export default userRepositary;  

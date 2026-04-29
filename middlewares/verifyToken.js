@@ -5,7 +5,7 @@ const verifyToken=(req,res,next)=>{
     try{
         const authHeader=req.headers.authorization;
         if(!authHeader || !authHeader.startsWith("Bearer ")){
-            throw new UnauthorizedError("Token is missing")''
+            throw new UnauthorizedError("Token is missing");
         }
         const token = authHeader.split(" ")[1]
 

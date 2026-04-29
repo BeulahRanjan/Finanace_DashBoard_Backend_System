@@ -1,3 +1,4 @@
+import { BadRequestError } from "../errors/AppError.js";
 import userService from "../services/userServices.js";
 
 async function createUser(req,res, next) {
@@ -19,6 +20,32 @@ async function deleteUser(req, res, next){
         res.status(200).json({
             success:true,
             message:" User deleted successfully!"
+        }) 
+    }
+    catch(error){
+        next(error);
+    }
+}
+
+async function updateRole(req,res,next){
+    try{
+        await userService.updateRole(req.params.id, req.params.role);
+        res.status(200).json({
+            success:true,
+            message:"Role updated successfully!"
+        })
+    }
+    catch(error){
+        next(error);
+    }
+}
+
+async function updateeStatus(req,re,next){
+    try{
+        await userService.updateStatus(req.params.id,req.params.status);
+        res.status(200).json({
+        success:true,
+        message:"Status updated successfully!"
         })
     }
     catch(error){
@@ -28,7 +55,9 @@ async function deleteUser(req, res, next){
 
 const userController={
     createUser:createUser,
-    deleteUser:deleteUser
+    deleteUser:deleteUser,
+    updateRole:updateRole,
+    updateStatus:updateStatus
 }
 
 export default userController;

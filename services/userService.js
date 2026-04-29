@@ -16,8 +16,18 @@ async function deleteUser(userId){
     await userRedpositary.deleteUser(userId);
 }
 
+async function updateRole(userId, role){
+    await userRepositary.updateRole(userId,role);
+}
+
+async function updateStatus(userId,status){
+    await userRepositary.updateStatus(userId,status);
+}
+
 const userService={
     createUser:createUser,
-    deleteUser:deleteUser
+    deleteUser:deleteUser,
+    updateRole:updateRole,
+    updateStatus:updateStatus
 }
-export default userService;
+export default userService; 
