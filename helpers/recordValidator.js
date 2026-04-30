@@ -57,4 +57,4 @@ export const updateRecordValidator=[
     .bail()
     .isMongoId()
     .withMessage('Invalid Record Id'),
-]
+];
