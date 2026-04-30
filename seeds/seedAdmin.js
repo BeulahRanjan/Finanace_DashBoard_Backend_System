@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-import mongoose from "momgoose";
+import mongoose from "mongoose";
 import { connectDB } from "../configs/db.js";
 import User from "../models/userModel.js";
 import Role from "../models/roleModel.js";
