@@ -8,9 +8,10 @@ async function createRecord(data){
 
 
 async function getAllRecord(userId, filters){
-    const data= await SpeechRecognitionResult.find({userId:userId,...filters}).sort({date:-1});
+    const data= await Record.find({userId:userId,...filters}).sort({date:-1});
     return data;
 }
+
 async function deleteRecord(recordId){
     const isExist= await Record.findById(recordId);
     if(!isExist) throw new BadRequestError('Record does not exist');
