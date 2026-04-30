@@ -47,3 +47,14 @@ export const deleteRecordValidator=[
     .withMessage('Invalid Record Id'),
 ];
 
+export const updateRecordValidator=[
+    param('id')
+    .exists()
+    .withMessage('Record Id param is reuired')
+    .bail()
+    .notEmpty()
+    .withMessage('Record Id cannot be empty')
+    .bail()
+    .isMongoId()
+    .withMessage('Invalid Record Id'),
+]
