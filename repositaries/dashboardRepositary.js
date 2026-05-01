@@ -63,3 +63,13 @@ async function getMonthlyTrends(){
 async function getRecentRecords(){
     return await Record.find().sort({ createdAt: -1}).limit(5);
 }
+
+
+const dashboardRepositary={
+    getSummary:getSummary,
+    getCategorySummary:getCategorySummary,
+    getMonthlyTrends:getMonthlyTrends,
+    getRecentRecords:getRecentRecords
+}
+
+export default dashboardRepositary;
