@@ -24,7 +24,7 @@ async function getAllRecord(query, recordId) {
     }
 
     if (query.category) {
-        filters.category = query.category;
+        filters.category = query.category; 
     }
 
     if (query.startDate && query.endDate) {

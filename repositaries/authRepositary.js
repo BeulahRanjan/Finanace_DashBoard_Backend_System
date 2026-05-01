@@ -4,8 +4,8 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 async function loginUser(user){
-    
-        const {email, password}=user;
+     
+        const {email, password}=user; 
         const existingUser=await User.findOne({email});
         if(!existingUser) throw new BadRequestError("User not Found");
 

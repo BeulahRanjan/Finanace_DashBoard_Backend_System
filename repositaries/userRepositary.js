@@ -33,7 +33,7 @@ async function updateRole(userId,role){
 
 
 async function updateStatus(userId,status){
-    const user= await User.findByIdAndUpdat(userId,
+    const user= await User.findByIdAndUpdate(userId,
         {status:status},
         {new:true}
     )

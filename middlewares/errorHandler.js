@@ -1,4 +1,4 @@
-import { AppError } from "../errors/AppError.js";
+import  AppError  from "../errors/AppError.js";
 import winston from "winston";
 
 const LogErrors = winston.createLogger({
@@ -33,26 +33,52 @@ class ErrorLogger {
   }
 }
 
+// const errorHandler = async (err, req, res, next) => {
+//   const errorLogger = new ErrorLogger();
+
+//   if (err) {
+//     await errorLogger.logError(err);
+
+//     // Operational errors (expected errors)
+//     if (errorLogger.isTrustError(err)) {
+//       return res.status(err.statusCode).json({
+//         success: false,
+//         message: err.message,
+//       });
+//     }
+
+//     // Non-operational errors (unexpected bugs)
+//     return res.status(err.statusCode || 500).json({
+//       success: false,
+//       error: { message: err.message },
+//     });
+//   }
+// };
 const errorHandler = async (err, req, res, next) => {
   const errorLogger = new ErrorLogger();
 
-  if (err) {
-    await errorLogger.logError(err);
+  await errorLogger.logError(err);
 
-    // Operational errors (expected errors)
-    if (errorLogger.isTrustError(err)) {
-      return res.status(err.statusCode).json({
-        success: false,
-        message: err.message,
-      });
-    }
+  const isTrusted = errorLogger.isTrustError(err);
 
-    // Non-operational errors (unexpected bugs)
-    return res.status(err.statusCode || 500).json({
+  const statusCode = err.statusCode || 500; // ✅ ALWAYS safe
+
+  if (isTrusted) {
+    return res.status(statusCode).json({
       success: false,
-      error: { message: err.message },
+      message: err.message,
     });
   }
+
+  // unexpected errors
+  return res.status(statusCode).json({
+    success: false,
+    message: "Something went wrong",
+    ...(process.env.NODE_ENV === "development" && {
+      error: err.message,
+      stack: err.stack,
+    }),
+  });
 };
 
 export default errorHandler;

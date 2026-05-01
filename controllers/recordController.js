@@ -15,8 +15,8 @@ async function createRecord(req,res,next){
 
 async function getAllRecord(req,res,next){
     try{
-        const data= await reccordService.getAllRecord(req.query,req.user);
-        res.ststus(200).json({
+        const data= await recordService.getAllRecord(req.query,req.user);
+        res.status(200).json({
             record:data,
             success:true,
             essage:"Record fetched succesfully!"
@@ -29,14 +29,14 @@ async function getAllRecord(req,res,next){
 
 async function deleteRecord(req,res,next){
     try{
-        await recordService.deleteRecord(recordService.params.id);
+        await recordService.deleteRecord(req.params.id);
         res.status(200).json({
             success:true,
             message:"Record deleted successfully!"
         })
     }
     catch(error){
-        next(error)
+        next(error);
     }
 }
 

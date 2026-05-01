@@ -1,14 +1,15 @@
 import mongoose from "mongoose";
-import { ENTERTAINMENT,EXPENSE,FOOD,HEALTH,INCOME,INVESTMENT } from "../utils/constants";
+import { ENTERTAINMENT,EXPENSE,FOOD,SALARY,HEALTH,PROPERTY,INCOME,INVESTMENT } from "../utils/constants.js";
 
 const recordSchema = new mongoose.Schema({
     userId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
     },
+    amount:Number,
     type:{
         type:String,
-        enum:[EXPENSE,INCOME],
+        enum:[EXPENSE,INCOME], 
 
     },
     category:{

@@ -19,12 +19,12 @@ export const createUserValidator = [
         .isEmpty(),
 
         check('role')
-          .notEmpty()
-          .withMesssage('Role is Required.')
-          .custom((values)=>{
+        .notEmpty()
+        .withMessage('Role is Required.')
+        .custom((value)=>{
             if( value === ANALYST || value === VIEWER) return true;
 
-            throw new BadRequestError('Invalid role.Onlyanalyst,viewer allowed');
+            throw new BadRequestError('Invalid role. Only analyst,viewer allowed');
           }),
     ];
 

@@ -1,8 +1,8 @@
 import dashboardRepositary from "../repositaries/dashboardRepositary.js";
 
-async function getSUmmary(){
+async function getSummary(){
     const summary = await dashboardRepositary.getSummary();
-    const categpry= await dashboardRepositary.getCategorySummary();
+    const category= await dashboardRepositary.getCategorySummary();
     const recent = await dashboardRepositary.getRecentRecords();
     const monthly = await dashboardRepositary.getMonthlyTrends();
 
@@ -14,10 +14,10 @@ async function getSUmmary(){
     }
 
     return data;
-
+}
     const dashboardService={
         getSummary:getSummary
     }
-}
+
 
 export default dashboardService;

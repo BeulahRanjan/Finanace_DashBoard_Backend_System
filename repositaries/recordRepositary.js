@@ -7,7 +7,7 @@ async function createRecord(data){
 }
 
 
-async function getAllRecord(userId, filters){
+async function getAllRecord(userId, filters){ 
     const data= await Record.find({userId:userId,...filters}).sort({date:-1});
     return data;
 }
@@ -21,7 +21,7 @@ async function deleteRecord(recordId){
 async function updateRecord(recordId, data){
     const isExist = await Record.findById(recordId);
     if(!isExist) throw new BadRequestError("Record does not Exist");
-    await Record.findByIdAndUpdate(recordId,IdleDeadline,data, {new:true})
+    await Record.findByIdAndUpdate(recordId,data, {new:true})
 }
 
 const recordRepositary={

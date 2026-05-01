@@ -1,7 +1,7 @@
-import { ENTERTAINMENT,EXPENSE,FOOD,INCOME,INVESTMENT,PROPERTY,SALARY,HEALTH } from "../utils/constants";
-import { BadRequestError } from "../errors/AppError";
-import { check } from 'express validator';
-import { param } from ' express validator';
+import { ENTERTAINMENT,EXPENSE,FOOD,INCOME,INVESTMENT,PROPERTY,SALARY,HEALTH } from "../utils/constants.js";
+import { BadRequestError } from "../errors/AppError.js";
+import { check } from 'express-validator';
+import { param } from 'express-validator'
 
 export const createRecordValidator = [
      check('amount','Please Enter a valid amount value')
@@ -39,13 +39,13 @@ export const deleteRecordValidator=[
     param('id')
     .exists()
     .withMessage("Record Idparam is required")
-    .bail 
-    .notEmpty
+    .bail() 
+    .notEmpty()
     .withMessage('Record Id cannot be empty')
     .bail()
     .isMongoId()
     .withMessage('Invalid Record Id'),
-];
+]; 
 
 export const updateRecordValidator=[
     param('id')

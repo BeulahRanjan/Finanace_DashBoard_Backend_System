@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "seed-roles":"node seeds/seedRoles.js",
-    "seed-admin":"node seeds/seedAdmin.js"
+    "seed-roles": "node seeds/seedRoles.js",
+    "seed-admin": "node seeds/seedAdmin.js"
   },
   "author": "Beulah Ranjan",
   "license": "ISC",
@@ -23,7 +23,8 @@
     "mongoose": "^8.23.1",
     "multer": "^2.1.1",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.1"
+    "swagger-ui-express": "^5.0.1",
+    "winston": "^3.19.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"

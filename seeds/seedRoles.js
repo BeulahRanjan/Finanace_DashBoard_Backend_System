@@ -11,19 +11,19 @@ const seedRoles = async() =>{
 
      await Role.updateOne(
         {name: ADMIN },
-        { permissions: Object.values(PERMISSIONS)},
+        {$set: { permissions: Object.values(PERMISSIONS)}},
         { upsert: true }
      );
 
      await Role.updateOne(
         {name: VIEWER},
-        { permissions : [PERMISSIONS.VIEW_SUMMARY]},
+       {$set:{ permissions : [PERMISSIONS.VIEW_SUMMARY]}},
         {upsert:true}
      );
 
      await Role.updateOne(
         {name: ANALYST},
-        {permissions:[PERMISSIONS.VIEW_RECORDS,PERMISSIONS.FILTER_RECORDS]},
+        {$set:{permissions:[PERMISSIONS.VIEW_RECORDS,PERMISSIONS.FILTER_RECORDS]}},
         {upsert:true }
      );
 };

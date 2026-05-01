@@ -13,7 +13,7 @@ async function createUser(body){
 }
 
 async function deleteUser(userId){
-    await userRedpositary.deleteUser(userId);
+    await userRepositary.deleteUser(userId);
 }
 
 async function updateRole(userId, role){

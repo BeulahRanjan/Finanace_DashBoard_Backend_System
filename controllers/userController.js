@@ -1,5 +1,5 @@
 import { BadRequestError } from "../errors/AppError.js";
-import userService from "../services/userServices.js";
+import userService from "../services/userService.js";
 
 async function createUser(req,res, next) {
     try{
@@ -40,7 +40,7 @@ async function updateRole(req,res,next){
     }
 }
 
-async function updateeStatus(req,re,next){
+async function updateStatus(req,res,next){
     try{
         await userService.updateStatus(req.params.id,req.params.status);
         res.status(200).json({

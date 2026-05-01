@@ -18,7 +18,7 @@ const authorize=(requiredPermission)=> {
             throw new ForbiddenError("User is inactive");
         }
 
-        if(!role.permissions.include(requirePermission)) {
+        if(!role.permissions.includes(requiredPermission)) {
             throw new ForbiddenError("Access Denied");
         }
 
