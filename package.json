@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "seed-roles":"node seeds/seedRoles.js",
+    "seed-admin":"node seeds/seedAdmin.js"
   },
   "author": "Beulah Ranjan",
   "license": "ISC",

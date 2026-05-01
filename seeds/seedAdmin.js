@@ -26,7 +26,7 @@ const seedAdmin= async () => {
             name: "Beulah Ranjan",
             email:"beulahranjan@gmail.com",
             password,
-            status:"active",
+            status:"ACTIVE",
             role:adminRole._id
         });
         await newUser.save();

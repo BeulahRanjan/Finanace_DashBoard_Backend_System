@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import Role from "../models/roleModel.js"
 import { PERMISSIONS } from "../utils/permissions.js";
-import { ADMIN, VIEWER, ANALYST} from "../utils/constants";
+import { ADMIN, VIEWER, ANALYST} from "../utils/constants.js";
 import { connectDB } from "../configs/db.js";
 
 const seedRoles = async() =>{
